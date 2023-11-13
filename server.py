@@ -25,15 +25,26 @@ class Books(db.Model):
     restricted = db.Column(db.Integer, nullable=False)
     copies = db.Column(db.Integer, nullable=False)
 
+class Users(db.Model):
+    __tablename__ = 'users'
+    username = db.Column(db.String(100), primary_key=True)
+    password = db.Column(db.String(100), nullable=False)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    books = Books.query.all()
-    return jsonify([(b.isbn, b.title, b.publication_date, b.acquisition_date, b.acquisition_price, b.times_borrowed,
-                     b.page_count, b.restricted,
-                     b.copies) for b in books])
 
-
+@app.route("/login", methods=['GET', 'POST'])
+def start_login_workflow():
+   data = request.get_json()
+   username = data['username']
+   password = data['password']
+   results = Users.query.filter_by(username=username, password=password).all()
+   if len(results) == 0:
+      return "User does not exist."
+   else:
+      reponse_data = {'first_name': results[0].first_name, 'last_name': results[0].last_name }
+      return reponse_data
+          
 @app.route("/get-books", methods=['GET', 'POST'])
 def get_books():
     books = Books.query.all()
