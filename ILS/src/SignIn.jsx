@@ -43,20 +43,22 @@ function App() {
 
   return (
     <>
-    <h1>Welcome to Crescendo ILS</h1>
-    <div className="grid-wrapper">
+    <h1>Crescendo ILS</h1>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="library">Library</label>
+        <br />
+        <input type='text' id="library" name="library" onChange={handleChange}></input>
+        <br />
         <label htmlFor="user">Username</label>
         <br/>
         <input type='text' id="username" name="username" onChange={handleChange}></input>
         <br/>
         <label htmlFor="pass">Password</label>
         <br/>
-        <input type='text' id="password" name="password" onChange={handleChange}></input>
+        <input type='password' id="password" name="password" onChange={handleChange}></input>
         <br />
         <button type="submit">Login</button>
       </form>
-    </div>
 
     </>
   )
