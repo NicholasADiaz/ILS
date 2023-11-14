@@ -43,23 +43,28 @@ function App() {
 
   return (
     <>
-    <h1>Crescendo ILS</h1>
+    <div className='background'>
+      <div className='logo'>
+        <h1>Crescendo</h1>
+        <h3>Integrated Library System</h3>
+      </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="library">Library</label>
         <br />
-        <input type='text' id="library" name="library" onChange={handleChange}></input>
+        <input type='text' id="library" name="library" placeholder="e.g. Houston Branch" onChange={handleChange}></input>
         <br />
         <label htmlFor="user">Username</label>
         <br/>
-        <input type='text' id="username" name="username" onChange={handleChange}></input>
+        <input type='text' id="username" name="username" placeholder="Username" onChange={handleChange}></input>
         <br/>
         <label htmlFor="pass">Password</label>
         <br/>
-        <input type='password' id="password" name="password" onChange={handleChange}></input>
+        <input type='password' id="password" name="password" placeholder="Password" onChange={handleChange}></input>
         <br />
         <button type="submit">Login</button>
+        <p>Forgot Password?</p>
       </form>
-
+      </div>
     </>
   )
 }
