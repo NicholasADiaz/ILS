@@ -16,7 +16,9 @@ function App() {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
-  })
+  });
+
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     setFormData({...formData, [event.target.name]: event.target.value});
@@ -32,35 +34,43 @@ function App() {
           navigate("/homepage", { state: { user: response.data } })
         }
         else {
-          console.log("There was a problem.")
+          setError("Incorrect Username/Password entered. Please try again.");
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error("An error occurred", error);
+        setError("An error occurred");
       });
     
 };
 
+const inputHighlightClass = error ? 'input-highlight' : '';
+
   return (
     <>
-    <div className='background'>
-      <div className='logo'>
-        <h1>Crescendo</h1>
-        <h3 className='subheading'>Integrated Library System</h3>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="library">Library</label>
-        <br />
-        <input type='text' id="library" name="library" placeholder="e.g. Houston Branch" onChange={handleChange}></input>
-        <br />
-        <label htmlFor="user">Username</label>
-        <br/>
-        <input type='text' id="username" name="username" placeholder="Username" onChange={handleChange}></input>
-        <br/>
-        <label htmlFor="pass">Password</label>
-        <br/>
-        <input type='password' id="password" name="password" placeholder="Password" onChange={handleChange}></input>
-        <br />
+      <div className='background'>
+        <div className='logo'>
+          <h1>Crescendo</h1>
+          <h3 className='subheading'>Integrated Library System</h3>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="library">Library</label>
+          <br />
+          <input type='text' id="library" name="library" placeholder="e.g. Houston Branch" onChange={handleChange}></input>
+          <br />
+          <label htmlFor="user">Username</label>
+          <br />
+          {/* Apply the 'input-highlight' class only when there's an error */}
+          <input type='text' id="username" name="username" placeholder="Username" onChange={handleChange} className={inputHighlightClass}></input>
+          <br />
+
+          <label htmlFor="pass">Password</label>
+          <br />
+          {/* Apply the 'input-highlight' class only when there's an error */}
+          <input type='password' id="password" name="password" placeholder="Password" onChange={handleChange} className={inputHighlightClass}></input>
+          <br />
+        {/* Display general error message */}
+        {error && <div className="error-message">{error}</div>}
         <button type="submit">Login</button>
         <p>Forgot Password?</p>
       </form>

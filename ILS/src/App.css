@@ -71,3 +71,12 @@ input[type=password] {
 .subheading {
   font-style: italic;
 }
+
+.error-message {
+  color: rgb(239, 87, 87);
+  margin-top: 5px; /* Add spacing to the top of the error message */
+  margin-bottom: 12px;
+}
+.input-highlight {
+  border: 2px solid red; /* Add a red border to the highlighted input boxes */
+}
