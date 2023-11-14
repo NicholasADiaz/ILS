@@ -46,7 +46,7 @@ function App() {
     <div className='background'>
       <div className='logo'>
         <h1>Crescendo</h1>
-        <h3>Integrated Library System</h3>
+        <h3 className='subheading'>Integrated Library System</h3>
       </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="library">Library</label>
