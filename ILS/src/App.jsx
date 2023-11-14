@@ -9,6 +9,7 @@ import { faGears } from '@fortawesome/free-solid-svg-icons';
 import { faArrowsRotate, faChartPie, faClipboardList, faBuilding, faMagnifyingGlass, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './App.css'
 
@@ -21,8 +22,17 @@ function App() {
     <div class="grid-wrapper">
       <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
       <div class="grid-container">
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowsRotate} /> <br /> Circulation</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faBook} /> <br /> Acquisitions </div>
+        <div class="grid-item">
+           <Link to="./ILS/src/Circulation/Circulation.jsx">
+            <FontAwesomeIcon icon={faArrowsRotate} /> <br /> Circulation 
+            </Link> 
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faBook} />
+            <Link to="./ILS/src/Circulation/Aquistions.jsx">
+            <br /> Acquisitions
+            </Link> 
+        </div>
         <div class="grid-item"> <FontAwesomeIcon icon={faUser} /> <br /> Patrons </div>
         <div class="grid-item"> <FontAwesomeIcon icon={faClipboardList} /><br /> Cataloging</div>
         <div class="grid-item"> <FontAwesomeIcon icon={faPieChart} /><br /> Reports</div>
