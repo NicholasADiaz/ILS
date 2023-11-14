@@ -23,23 +23,59 @@ function App() {
       <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="./ILS/src/Circulation/Circulation.jsx">
-            <FontAwesomeIcon icon={faArrowsRotate} /> <br /> Circulation 
-            </Link> 
+           <Link to="./ILS/src/Circulation/Circulation.jsx">    {/* Link to Ciruclations Webpage */} 
+            <FontAwesomeIcon icon={faArrowsRotate} />           {/* Icon for Circulations*/}
+            <br /> Circulation                                  {/* Icon Text*/}
+            </Link>                                             {/* Closing of Link to Webpage*/}
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBook} />
-            <Link to="./ILS/src/Circulation/Aquistions.jsx">
+            <Link to="./ILS/src/Aquisitions/Aquistions.jsx">
             <br /> Acquisitions
             </Link> 
         </div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faUser} /> <br /> Patrons </div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faClipboardList} /><br /> Cataloging</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faPieChart} /><br /> Reports</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faBuilding} /><br /> Branches</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faMagnifyingGlass} /><br /> Search</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faSearchPlus} /><br /> Pro Search</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faGears} /> <br /> Settings</div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faUser} /> 
+            <Link to="./ILS/src/Patrons/Patrons.jsx">
+            <br /> Patrons 
+            </Link>
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faClipboardList} />
+            <Link to="./ILS/src/Cataloging/Cataloging.jsx">
+            <br /> Cataloging
+            </Link>
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faPieChart} />
+            <Link to="./ILS/src/Reports/Reports.jsx">
+            <br /> Reports
+            </Link>
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faBuilding} />
+            <Link to="./ILS/src/Branches/Branches.jsx">
+            <br /> Branches
+            </Link>
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <Link to="./ILS/src/Search/Search.jsx">
+            <br /> Search
+            </Link>
+        </div>
+        <div class="grid-item"> 
+            <FontAwesomeIcon icon={faSearchPlus} />
+            <Link to="./ILS/src/Pro Search/ProSearch.jsx">
+            <br /> Pro Search
+            </Link>
+        </div>
+            <div class="grid-item"> 
+            <FontAwesomeIcon icon={faGears} /> 
+            <Link to="./ILS/src/Settings/Settings.jsx">
+            <br /> Settings
+        </Link>
+        </div>
       </div>
     </div>
 
