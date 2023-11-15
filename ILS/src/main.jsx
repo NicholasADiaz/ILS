@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path ="/" element={<SignIn />}></Route>
+        <Route path ="/" element={<SignIn />}></Route> {/* Reroutes "127.0.0.1:5173/" to the /login page */}
         <Route path ="/homepage" element={<Homepage />}></Route>
         <Route path ="/circulation" element={<Circulation/>}></Route>
         <Route path ="/acquisitions" element={<Acquistions/>}></Route>
@@ -30,4 +30,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Routes>
     </Router>
   </React.StrictMode>,
-)
+);
