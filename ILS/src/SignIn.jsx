@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
@@ -13,27 +15,53 @@ import './App.css'
 
 function App() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check the login status from localStorage
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';  
+    console.log('Is Logged In:', isLoggedIn);
+      // Redirect based on the login status
+    navigate(isLoggedIn ? '/homepage' : '/login');
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
+  
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
 
+  const [rememberMe, setRememberMe] = useState(false);
+
   const [error, setError] = useState(null);
+  
+  const inputHighlightClass = error ? 'input-highlight' : '';
 
   const handleChange = (event) => {
     setFormData({...formData, [event.target.name]: event.target.value});
     console.log(formData);
   };
 
+  const handleCheckboxChange = (event) => {
+    setRememberMe(event.target.checked);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+   
     axios.post("http://127.0.0.1:5000/login", formData)
       .then((response) => {
-        if (response.data != "User does not exist.") {
-          console.log(response.data)
-          navigate("/homepage", { state: { user: response.data } })
-        }
-        else {
+        if (response.data !== "User does not exist.") {
+          console.log(response.data);
+
+          if (rememberMe) {
+            // Store login status in localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+          }
+
+          // Navigate to the homepage
+          navigate("/homepage", { state: { user: response.data } });
+        } else {
           setError("Incorrect Username/Password entered. Please try again.");
         }
       })
@@ -41,12 +69,9 @@ function App() {
         console.error("An error occurred", error);
         setError("An error occurred");
       });
-    
-};
-
-const inputHighlightClass = error ? 'input-highlight' : '';
-
-  return (
+  };
+  
+  return ( // HTML start
     <>
       <div className='background'>
         <div className='logo'>
@@ -65,7 +90,7 @@ const inputHighlightClass = error ? 'input-highlight' : '';
             onChange={handleChange} 
             //Clears forms on focus
             value={formData.username} onFocus={() => setFormData({ ...formData, username: '' })} 
-            className={inputHighlightClass}></input> {/* Apply the 'input-highlight' class only when there's an error */}
+            className={inputHighlightClass}></input> {/* Apply the 'input-highlight' class (only when there's an error) */}
             <br />
             
             <label htmlFor="pass">Password</label>
@@ -78,8 +103,22 @@ const inputHighlightClass = error ? 'input-highlight' : '';
           <br />
         {/* Display general error message */}
         {error && <div className="error-message">{error}</div>}
+
+        <br />
         <button type="submit">Login</button>
-        <p>Forgot Password?</p>
+        
+        <div id="remember-me">
+          <label>
+              <input type="checkbox" onChange={handleCheckboxChange} id="rememberMe"/> Remember Me   
+          </label>
+          <label>
+              <input type="checkbox" id="showPass"/> Show Password
+          </label>
+        </div>
+      
+        <p><Link to="./ILS/src/Password Recovery/PasswordRecovery.jsx" className="link-style">Forgot Password?</Link></p>
+
+
       </form>
       </div>
     </>
