@@ -50,3 +50,11 @@ input[type=password] {
 .subheading {
   font-style: italic;
 }
+#remember-me label {
+  margin-right: 5px; /* Adjust the value as needed */
+  font-size: 14px;   /* Set the desired font size */
+  margin-left: 5px;
+}
+button[type="submit"] {
+  margin-bottom: 5px;
+}

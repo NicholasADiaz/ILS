@@ -7,7 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import './SignIn.css'
 
 function SignIn() {
-  const navigate = useNavigate();
+  const navigate = useNavigate({
+    username: '',
+    password: ''
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     // Check the login status from localStorage
@@ -32,6 +37,10 @@ function SignIn() {
   const handleChange = (event) => {
     setFormData({...formData, [event.target.name]: event.target.value});
     console.log(formData);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleCheckboxChange = (event) => {
@@ -88,10 +97,13 @@ function SignIn() {
             
             <label htmlFor="pass">Password</label>
             <br />
-            <input type='password' id="password" name="password" placeholder="Password"
-            onChange={handleChange} value={formData.password} 
-            onFocus={() => setFormData({ ...formData, password: '' })} 
-            className={inputHighlightClass}></input> 
+            <input type={showPassword ? 'text' : 'password'}
+              id="password"
+              value={formData.password}
+              name="password" placeholder="Password"
+              onChange={handleChange}
+              onFocus={() => setFormData({ ...formData, password: '' })} 
+              className={inputHighlightClass}></input> 
            
           <br />
         {/* Display general error message */}
@@ -102,16 +114,17 @@ function SignIn() {
         
         <div id="remember-me">
           <label>
-              <input type="checkbox" onChange={handleCheckboxChange} id="rememberMe"/> Remember Me   
+            <input type="checkbox" onChange={handleCheckboxChange} id="rememberMe" /> Remember Me 
           </label>
           <label>
-              <input type="checkbox" id="showPass"/> Show Password
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={togglePasswordVisibility}/>Show Password
           </label>
         </div>
       
         <p><Link to="./ILS/src/Password Recovery/PasswordRecovery.jsx" className="link-style">Forgot Password?</Link></p>
-
-
       </form>
       </div>
     </>

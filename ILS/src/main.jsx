@@ -10,14 +10,14 @@ import Reports from './Reports/Reports.jsx'
 import Search from './Search/Search.jsx'
 import ProSearch from './Pro Search/ProSearch.jsx'
 import Settings from './Settings/Settings.jsx'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path ="/" element={<SignIn />}></Route> {/* Reroutes "127.0.0.1:5173/" to the /login page */}
+        <Route path ="/login" element={<SignIn />}></Route> {/* Reroutes "127.0.0.1:5173/" to the /login page */} 
         <Route path ="/homepage" element={<Homepage />}></Route>
         <Route path ="/circulation" element={<Circulation/>}></Route>
         <Route path ="/acquisitions" element={<Acquistions/>}></Route>
@@ -27,6 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path ="/search" element={<Search/>}></Route>
         <Route path ="/pro-search" element={<ProSearch/>}></Route>
         <Route path ="/settings" element={<Settings/>}></Route>
+        <Route path="/"element={<Navigate to="/login" />}> </Route>
+
       </Routes>
     </Router>
   </React.StrictMode>,

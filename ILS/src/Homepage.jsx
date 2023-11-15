@@ -11,16 +11,20 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import './App.css'
+import './Homepage.css'
 
-function App() {
+function Homepage() {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
     <>
     <div class="grid-wrapper">
-      <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
+    <h1>
+        Welcome 
+        {location.state && location.state.user? `${location.state.user.last_name.toUpperCase()}, 
+        ${location.state.user.first_name.toUpperCase()}`: 'Guest'}
+    </h1>
       <div class="grid-container">
         <div class="grid-item">
            <Link to="./ILS/src/Circulation/Circulation.jsx">    {/* Link to Ciruclations Webpage */} 
@@ -83,4 +87,4 @@ function App() {
   )
 }
 
-export default App
+export default Homepage
