@@ -1,78 +1,70 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBook, faPieChart} from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGears } from '@fortawesome/free-solid-svg-icons';
-import { faArrowsRotate, faChartPie, faClipboardList, faBuilding, faMagnifyingGlass, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { faArrowsRotate, faClipboardList, faBuilding, faMagnifyingGlass, faSearchPlus, faBook, faPieChart, faUser, faGears } from '@fortawesome/free-solid-svg-icons';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import './App.css'
+import './Homepage.css'
 
-function App() {
+function Homepage() {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
     <>
+    <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
     <div class="grid-wrapper">
-      <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="./ILS/src/Circulation/Circulation.jsx">    {/* Link to Ciruclations Webpage */} 
+           <Link to="/circulation">    {/* Link to Ciruclations Webpage */} 
             <FontAwesomeIcon icon={faArrowsRotate} />           {/* Icon for Circulations*/}
             <br /> Circulation                                  {/* Icon Text*/}
             </Link>                                             {/* Closing of Link to Webpage*/}
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBook} />
-            <Link to="./ILS/src/Aquisitions/Aquistions.jsx">
+            <Link to="/acquistions">
             <br /> Acquisitions
             </Link> 
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faUser} /> 
-            <Link to="./ILS/src/Patrons/Patrons.jsx">
+            <Link to="/patrons">
             <br /> Patrons 
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faClipboardList} />
-            <Link to="./ILS/src/Cataloging/Cataloging.jsx">
+            <Link to="/cataloging">
             <br /> Cataloging
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faPieChart} />
-            <Link to="./ILS/src/Reports/Reports.jsx">
+            <Link to="/reports">
             <br /> Reports
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBuilding} />
-            <Link to="./ILS/src/Branches/Branches.jsx">
+            <Link to="/branches">
             <br /> Branches
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-            <Link to="./ILS/src/Search/Search.jsx">
+            <Link to="/search">
             <br /> Search
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faSearchPlus} />
-            <Link to="./ILS/src/Pro Search/ProSearch.jsx">
+            <Link to="/pro-search">
             <br /> Pro Search
             </Link>
         </div>
             <div class="grid-item"> 
             <FontAwesomeIcon icon={faGears} /> 
-            <Link to="./ILS/src/Settings/Settings.jsx">
+            <Link to="/settings">
             <br /> Settings
         </Link>
         </div>
@@ -83,4 +75,4 @@ function App() {
   )
 }
 
-export default App
+export default Homepage
