@@ -3,17 +3,10 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBook} from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGears } from '@fortawesome/free-solid-svg-icons';
 
-import './App.css'
+import './SignIn.css'
 
-function App() {
+function SignIn() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -125,4 +118,4 @@ function App() {
   )
 }
 
-export default App
+export default SignIn

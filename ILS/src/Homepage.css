@@ -7,7 +7,10 @@ body {
   background-image: url(./assets/login.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 .grid-wrapper {
   max-width: 50%;
@@ -49,16 +52,16 @@ input[type=password] {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
   padding: 10px;
   margin: auto;
-  width: 75%;
+  width: 100%;
+  border-radius: 15px;
+  font-size: 25px;
 }
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  padding: 15px;
   text-align: center;
 }
 .background {

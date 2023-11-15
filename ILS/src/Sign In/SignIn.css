@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Nunito&display=swap');
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+  text-align: center;
+  background-image: url('../assets/login.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 18px;
+  color: white;
+  font-family: 'Jost', sans-serif;
+}
+button {
+  padding: 15px 25px;
+  text-align: center;
+  outline: none;
+  background-color: #6495ed;
+  border: 0;
+  border-radius: 5px;
+  width: 25%;
+  box-shadow: 0 2px #999;
+  color: white
+}
+button:hover {
+  background-color: #5d81c4;
+}
+
+button:active {
+  background-color: #405f98;
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
+}
+input[type=text] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=password] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+}
+.logo {
+  line-height: 75%;
+}
+.subheading {
+  font-style: italic;
+}

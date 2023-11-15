@@ -16,72 +16,63 @@ import './App.css'
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-  /* if (isLoggedIn) {
-    <Route path="/homepage" element={<App />} /> }
-    else {
-        <Route path="/" element={<Navigate to="/homepage" />} />
-    }
-*/
 
   return (
     <>
     <div class="grid-wrapper">
-    <h1>
-  Welcome {location.state && location.state.user ? `${location.state.user.last_name.toUpperCase()}, ${location.state.user.first_name.toUpperCase()}`: 'Guest'}</h1>
+      <h1>Welcome {location.state.user.last_name.toUpperCase()}, {location.state.user.first_name.toUpperCase()}</h1>
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="./ILS/src/Circulation/Circulation.jsx" className="link-style">    {/* Link to Ciruclations Webpage */} 
-            <FontAwesomeIcon icon={faArrowsRotate} />                                  {/* Icon for Circulations*/}
-            <br /> Circulation                                                         {/* Icon Text*/}
-            </Link>                                                                    {/* Closing of Link to Webpage*/}
+           <Link to="./ILS/src/Circulation/Circulation.jsx">    {/* Link to Ciruclations Webpage */} 
+            <FontAwesomeIcon icon={faArrowsRotate} />           {/* Icon for Circulations*/}
+            <br /> Circulation                                  {/* Icon Text*/}
+            </Link>                                             {/* Closing of Link to Webpage*/}
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBook} />
-            <Link to="./ILS/src/Aquisitions/Aquistions.jsx" className="link-style">
+            <Link to="./ILS/src/Aquisitions/Aquistions.jsx">
             <br /> Acquisitions
             </Link> 
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faUser} /> 
-            <Link to="./ILS/src/Patrons/Patrons.jsx" className="link-style">
+            <Link to="./ILS/src/Patrons/Patrons.jsx">
             <br /> Patrons 
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faClipboardList} />
-            <Link to="./ILS/src/Cataloging/Cataloging.jsx" className="link-style">
+            <Link to="./ILS/src/Cataloging/Cataloging.jsx">
             <br /> Cataloging
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faPieChart} />
-            <Link to="./ILS/src/Reports/Reports.jsx" className="link-style">
+            <Link to="./ILS/src/Reports/Reports.jsx">
             <br /> Reports
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBuilding} />
-            <Link to="./ILS/src/Branches/Branches.jsx" className="link-style">
+            <Link to="./ILS/src/Branches/Branches.jsx">
             <br /> Branches
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-            <Link to="./ILS/src/Search/Search.jsx" className="link-style">
+            <Link to="./ILS/src/Search/Search.jsx">
             <br /> Search
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faSearchPlus} />
-            <Link to="./ILS/src/Pro Search/ProSearch.jsx" className="link-style">
+            <Link to="./ILS/src/Pro Search/ProSearch.jsx">
             <br /> Pro Search
             </Link>
         </div>
             <div class="grid-item"> 
             <FontAwesomeIcon icon={faGears} /> 
-            <Link to="./ILS/src/Settings/Settings.jsx" className="link-style">
+            <Link to="./ILS/src/Settings/Settings.jsx">
             <br /> Settings
         </Link>
         </div>

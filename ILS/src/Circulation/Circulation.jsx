@@ -17,7 +17,7 @@ function Circulation() {
   return (
     <>
    <div class="grid-wrapper">
-      <h1>Welcome </h1>
+      <h1>Circulation </h1>
       <div class="grid-container">
         <div class="grid-item">
            <Link to="/circulation">
@@ -26,7 +26,7 @@ function Circulation() {
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faArrowDown} />
-            <Link to="./ILS/src/Circulation/Aquistions.jsx">
+            <Link to="/acquistions">
             <br /> Check Out
             </Link> 
         </div>
