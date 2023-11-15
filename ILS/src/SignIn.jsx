@@ -58,16 +58,23 @@ const inputHighlightClass = error ? 'input-highlight' : '';
           <br />
           <input type='text' id="library" name="library" placeholder="e.g. Houston Branch" onChange={handleChange}></input>
           <br />
-          <label htmlFor="user">Username</label>
-          <br />
-          {/* Apply the 'input-highlight' class only when there's an error */}
-          <input type='text' id="username" name="username" placeholder="Username" onChange={handleChange} className={inputHighlightClass}></input>
-          <br />
-
-          <label htmlFor="pass">Password</label>
-          <br />
-          {/* Apply the 'input-highlight' class only when there's an error */}
-          <input type='password' id="password" name="password" placeholder="Password" onChange={handleChange} className={inputHighlightClass}></input>
+          
+            <label htmlFor="user">Username</label>
+            <br />
+            <input type='text' id="username" name="username" placeholder="Username" 
+            onChange={handleChange} 
+            //Clears forms on focus
+            value={formData.username} onFocus={() => setFormData({ ...formData, username: '' })} 
+            className={inputHighlightClass}></input> {/* Apply the 'input-highlight' class only when there's an error */}
+            <br />
+            
+            <label htmlFor="pass">Password</label>
+            <br />
+            <input type='password' id="password" name="password" placeholder="Password"
+            onChange={handleChange} value={formData.password} 
+            onFocus={() => setFormData({ ...formData, password: '' })} 
+            className={inputHighlightClass}></input> 
+           
           <br />
         {/* Display general error message */}
         {error && <div className="error-message">{error}</div>}
