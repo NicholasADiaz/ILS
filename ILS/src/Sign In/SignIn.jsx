@@ -20,7 +20,7 @@ function SignIn() {
     console.log('Is Logged In:', isLoggedIn);
       // Redirect based on the login status
     navigate(isLoggedIn ? '/homepage' : '/login');
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+  }, []); 
 
   
   const [formData, setFormData] = useState({
@@ -49,19 +49,16 @@ function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-   
+  
     axios.post("http://127.0.0.1:5000/login", formData)
       .then((response) => {
         if (response.data !== "User does not exist.") {
           console.log(response.data);
-
-          if (rememberMe) {
-            // Store login status in localStorage
-            localStorage.setItem('isLoggedIn', 'true');
-          }
-
-          // Navigate to the homepage
+  
+          // Store login status and user information in localStorage
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('user', JSON.stringify(response.data));
+          
           navigate("/homepage", { state: { user: response.data } });
         } else {
           setError("Incorrect Username/Password entered. Please try again.");
@@ -72,6 +69,7 @@ function SignIn() {
         setError("An error occurred");
       });
   };
+  
   
   return ( // HTML start
     <>

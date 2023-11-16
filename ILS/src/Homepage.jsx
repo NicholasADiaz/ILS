@@ -10,73 +10,88 @@ import { faArrowsRotate, faChartPie, faClipboardList, faBuilding, faMagnifyingGl
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 import './Homepage.css'
 
 function Homepage() {
-  const location = useLocation();
-  const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
+  
+    const storedUser = localStorage.getItem('user');
+    const user = storedUser ? JSON.parse(storedUser) : null;
+
+  const handleSignout = () => {
+    // Clear login status from localStorage
+    localStorage.removeItem('isLoggedIn');
+  
+    // Redirect to the login page
+    navigate("/login");
+  };
 
   return (
-    <>
+    <>    
     <div class="grid-wrapper">
     <h1>
-        Welcome 
-        {location.state && location.state.user? `${location.state.user.last_name.toUpperCase()}, 
-        ${location.state.user.first_name.toUpperCase()}`: 'Guest'}
+    Welcome{' '}
+          {user
+            ? `${user.last_name.toUpperCase()}, ${user.first_name.toUpperCase()}`
+            : 'Guest'}
     </h1>
+
+
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="./ILS/src/Circulation/Circulation.jsx">    {/* Link to Ciruclations Webpage */} 
+           <Link to="/circulation">    {/* Link to Ciruclations Webpage */} 
             <FontAwesomeIcon icon={faArrowsRotate} />           {/* Icon for Circulations*/}
             <br /> Circulation                                  {/* Icon Text*/}
             </Link>                                             {/* Closing of Link to Webpage*/}
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBook} />
-            <Link to="./ILS/src/Aquisitions/Aquistions.jsx">
+            <Link to="/acquisitions">
             <br /> Acquisitions
             </Link> 
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faUser} /> 
-            <Link to="./ILS/src/Patrons/Patrons.jsx">
+            <Link to="/patrons">
             <br /> Patrons 
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faClipboardList} />
-            <Link to="./ILS/src/Cataloging/Cataloging.jsx">
+            <Link to="/cataloging">
             <br /> Cataloging
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faPieChart} />
-            <Link to="./ILS/src/Reports/Reports.jsx">
+            <Link to="/reports">
             <br /> Reports
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBuilding} />
-            <Link to="./ILS/src/Branches/Branches.jsx">
+            <Link to="/branches">
             <br /> Branches
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-            <Link to="./ILS/src/Search/Search.jsx">
+            <Link to="/search">
             <br /> Search
             </Link>
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faSearchPlus} />
-            <Link to="./ILS/src/Pro Search/ProSearch.jsx">
+            <Link to="/pro-search">
             <br /> Pro Search
             </Link>
         </div>
             <div class="grid-item"> 
             <FontAwesomeIcon icon={faGears} /> 
-            <Link to="./ILS/src/Settings/Settings.jsx">
+            <Link to="/settings">
             <br /> Settings
         </Link>
         </div>
