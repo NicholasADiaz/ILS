@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:busyFoo+42@100.109.159.74:3306/ILS'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://nicholas:M!/ENRSpyFTx7iEI@100.109.159.74:3306/ILS'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'secret string'
 
