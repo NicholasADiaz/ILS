@@ -38,7 +38,7 @@ function Branches() {
         ))}
       </select>
       <br/>
-      <button>Submit</button>
+      <button className='button'>Submit</button>
       </div>
     </div>
 

@@ -16,7 +16,7 @@ a {
   max-width: 50%;
   margin: auto;
 }
-button {
+.button_HomePage {
   padding: 15px 25px;
   text-align: center;
   outline: none;

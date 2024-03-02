@@ -1,17 +1,15 @@
 .navigation {
-    background-color: #7a9ee03f;
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* Adjust as needed */
-    align-items: center;
+  overflow: hidden;
+  background-color: #333;
   }
   
   /* Styles for navigation links */
   .navigation a {
     float: left;
-    display: block;
+    font-size: 16px;
     color: white;
     text-align: center;
-    padding: 8px 16px;
+    padding: 14px 16px;
     text-decoration: none;
   }
   
@@ -21,38 +19,44 @@
   
   /* Styles for the user dropdown */
   .user-dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
+    float: right;
+    padding: 0px 10px;
   }
   
-  .user-dropdown .dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    float: right;
-    box-sizing: border-box;
-    line-height: 1.5;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+  .navigation .user-dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  box-sizing: border-box;
+  min-width: 2em; /* Add this line */
+  }
+
+  .navigation a:hover, .user-dropdown:hover .dropbtn {
+    background-color: rgba(255, 0, 0, 0.368);
   }
   
   .user-dropdown .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    min-width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    left: auto; /* Remove the 'left' property */
     right: 0; /* Align the dropdown to the right */
   }
   
   .user-dropdown .dropdown-content a {
+    float: none;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
   }
   
   .user-dropdown .dropdown-content a:hover {
@@ -62,3 +66,4 @@
   .user-dropdown:hover .dropdown-content {
     display: block;
   }
+ 
