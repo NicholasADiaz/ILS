@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navigation from './Navigation/Navigation.jsx';
 import Homepage from './Homepage.jsx';
 import SignIn from './Sign In/SignIn.jsx';
+import CheckIn from './Check In/CheckIn.jsx';
 import Branches from './Branches/Branches.jsx';
 import Circulation from './Circulation/Circulation.jsx';
 import Acquistions from './Acquisitions/Acquisitions.jsx';
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<SignIn />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/circulation" element={<Circulation />} />
+        <Route path="/check-in" element={<CheckIn />} />
         <Route path="/acquisitions" element={<Acquistions />} />
         <Route path="/branches" element={<Branches />} />
         <Route path="/cataloging" element={<Cataloging />} />

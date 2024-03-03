@@ -7,6 +7,26 @@ function Branches() {
     const [branchList, setBranchList] = useState([])
     const [selectedBranch, setSelectedBranch] = useState('');
 
+    const handleCommit = (event) => {
+      event.preventDefault(); // Prevent the default form submit action
+    
+      // Example: Submitting some specific data, not the entire form
+      const formData = {
+        username: 'anthony',
+        branch: selectedBranch
+      };
+    
+      axios.post("http://127.0.0.1:5000/update-branch", formData)
+        .then(response => {
+          // Handle successful commit
+          console.log(response.data);
+        })
+        .catch(error => {
+          // Handle errors
+          console.error("Commit failed", error);
+        });
+    };
+
     useEffect(() => {
         axios.post("http://127.0.0.1:5000/get-branch-data")
         .then((response) => {
@@ -38,7 +58,7 @@ function Branches() {
         ))}
       </select>
       <br/>
-      <button>Submit</button>
+      <button onClick={handleCommit}>Commit</button>
       </div>
     </div>
 

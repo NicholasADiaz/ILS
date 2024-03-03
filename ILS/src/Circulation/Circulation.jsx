@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBook, faPieChart} from '@fortawesome/free-solid-svg-icons'
+import {faBook, faPieChart, faBuilding, faBaby, faClock, faClockRotateLeft, faArrowRightArrowLeft, faTableList} from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGears } from '@fortawesome/free-solid-svg-icons';
 import { faArrowUp, faArrowDown, faRotate, faArrowsRotate  } from '@fortawesome/free-solid-svg-icons';
@@ -20,23 +20,27 @@ function Circulation() {
       <h1>Circulation </h1>
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="/circulation">
-            <FontAwesomeIcon icon={faArrowUp} /> <br /> Check In 
+        <FontAwesomeIcon icon={faArrowUp} />
+           <Link to="/check-in"> 
+           <br /> Check In 
             </Link> 
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faArrowDown} />
-            <Link to="/acquistions">
+            <Link to="/check-out">
             <br /> Check Out
             </Link> 
         </div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowsRotate} /> <br /> Renew </div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /><br /> Set Branch</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /><br /> Renew</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /><br /> Set Branch</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /><br /> Fast Cataloging</div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /><br /> Overdue </div>
-        <div class="grid-item"> <FontAwesomeIcon icon={faArrowDown} /> <br /> Overdue w/ Fines</div>
+        <div class="grid-item"> 
+        <FontAwesomeIcon icon={faArrowsRotate} />
+         <br /> Renew 
+         </div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faBuilding} /><br /> Set Branch</div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faTableList} /><br /> Holds Queue</div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faArrowRightArrowLeft} /><br /> Transfer</div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faBook} /><br /> Fast Cataloging</div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faClock} /><br /> Overdue </div>
+        <div class="grid-item"> <FontAwesomeIcon icon={faClockRotateLeft} /> <br /> Overdue w/ Fines</div>
       </div>
     </div>
 

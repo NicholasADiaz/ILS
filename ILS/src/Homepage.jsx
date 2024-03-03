@@ -42,10 +42,10 @@ function Homepage() {
 
       <div class="grid-container">
         <div class="grid-item">
-           <Link to="/circulation">    {/* Link to Ciruclations Webpage */} 
-            <FontAwesomeIcon icon={faArrowsRotate} />           {/* Icon for Circulations*/}
-            <br /> Circulation                                  {/* Icon Text*/}
-            </Link>                                             {/* Closing of Link to Webpage*/}
+          <FontAwesomeIcon icon={faArrowsRotate} />
+           <Link to="/circulation">    
+            <br /> Circulation                                 
+            </Link>                                             
         </div>
         <div class="grid-item"> 
             <FontAwesomeIcon icon={faBook} />

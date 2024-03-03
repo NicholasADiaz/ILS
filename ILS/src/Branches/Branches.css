@@ -7,14 +7,14 @@ body {
   font-size: 18px;
   color: white;
 }
-button {
+.commit {
   padding: 5px 15px;
   text-align: center;
   outline: none;
   background-color: #6495ed;
   border: 0;
   border-radius: 5px;
-  width: 12%;
+  width: 5%;
   box-shadow: 0 2px #999;
   color: white
 }
