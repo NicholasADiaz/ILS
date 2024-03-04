@@ -58,3 +58,11 @@ input[type=password] {
 button[type="submit"] {
   margin-bottom: 5px;
 }
+.show-password-checkbox {
+  display: inline-block;
+  margin-left: 10px;
+}
+/* Styles for browsers that do not support "Show Password" */
+.hide-password-checkbox {
+  display: none;
+}

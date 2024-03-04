@@ -13,11 +13,16 @@ function SignIn() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  
+  
+  const isEdge = navigator.userAgentData?.brands?.some((brand) => brand.brand === 'Microsoft Edge');
+    //See if browser is Microsoft edge. Edge has a built in Password Visibility button, so we will remove ours.
 
   useEffect(() => {
     // Check the login status from localStorage
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';  
     console.log('Is Logged In:', isLoggedIn);
+
       // Redirect based on the login status
     navigate(isLoggedIn ? '/homepage' : '/login');
   }, []); 
@@ -93,7 +98,7 @@ function SignIn() {
             className={inputHighlightClass}></input> {/* Apply the 'input-highlight' class (only when there's an error) */}
             <br />
             
-            <label htmlFor="pass">Password</label>
+            <label htmlFor="pass">Password1</label>
             <br />
             <input type={showPassword ? 'text' : 'password'}
               id="password"
@@ -110,16 +115,19 @@ function SignIn() {
         <br />
         <button className='button_SignIn' type="submit">Login</button>
         
-        <div id="remember-me">
+        <div id="remember-me"> {/* Remember Me button and Show Password button line */}
           <label>
             <input type="checkbox" onChange={handleCheckboxChange} id="rememberMe" /> Remember Me 
           </label>
+          
+          {!isEdge && (
           <label>
             <input
               type="checkbox"
               checked={showPassword}
               onChange={togglePasswordVisibility}/>Show Password
           </label>
+          )}
         </div>
       
         <p><Link to="./ILS/src/Password Recovery/PasswordRecovery.jsx" className="link-style">Forgot Password?</Link></p>
