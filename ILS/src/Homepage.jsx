@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBook, faPieChart} from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGears } from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faArrowsRotate, faChartPie, faClipboardList, faBuilding, faMagnifyingGlass, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
@@ -90,9 +91,9 @@ function Homepage() {
             </Link>
         </div>
             <div class="grid-item"> 
-            <FontAwesomeIcon icon={faGears} /> 
-            <Link to="/settings">
-            <br /> Settings
+            <FontAwesomeIcon icon={faUsers} /> 
+            <Link to="/Users">
+            <br /> Users
         </Link>
         </div>
       </div>

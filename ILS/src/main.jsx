@@ -11,7 +11,7 @@ import Cataloging from './Cataloging/Cataloging.jsx';
 import Reports from './Reports/Reports.jsx';
 import Search from './Search/Search.jsx';
 import ProSearch from './Pro Search/ProSearch.jsx';
-import Settings from './Settings/Settings.jsx';
+import Settings from './Users/Users.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
